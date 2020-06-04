@@ -131,7 +131,7 @@ module.exports = {
             var data_keys = _.keys(this.data);
             if (0 < data_keys.length && data_keys[0].length > 10) {
                 for (var i = 0; i < data_keys.length; i++) {
-                    data_keys[i] = data_keys[i].substr(11);
+                    data_keys[i] = moment.utc(data_keys[i], 'YYYY-MM-DD HH:mm').local().format('HH:mm');
                 }
             }
             this.chart = new Chart(this.context, {
